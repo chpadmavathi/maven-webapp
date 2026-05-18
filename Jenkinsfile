@@ -22,7 +22,7 @@ pipeline {
         }
         stage('k8s deploy'){
             steps{
-               sh 'kubectl apply -f k8s-deploy.yml --validate=false'
+               sh 'kubectl apply -f k8s-deploy.yml' --validate=false
             }
         }
     }
