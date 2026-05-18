@@ -6,7 +6,7 @@ pipeline {
     }
      environment {
         // Automatically binds AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-        AWS_CREDS = credentials('aws-creds-id')
+        AWS_CREDS = credentials('aws_creds_id')
     }
     stages {
         stage('clone') {
