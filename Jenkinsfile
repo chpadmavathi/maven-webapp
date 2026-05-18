@@ -26,6 +26,7 @@ pipeline {
         }
         stage('k8s deploy'){
             steps{
+                sh 'kubectl get nodes'
                sh 'kubectl apply -f k8s-deploy.yml'
             }
         }
