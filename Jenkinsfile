@@ -4,6 +4,10 @@ pipeline {
     tools{
         maven 'Maven'
     }
+     environment {
+        // Automatically binds AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+        AWS_CREDS = credentials('aws-creds-id')
+    }
     stages {
         stage('clone') {
             steps {
@@ -22,7 +26,7 @@ pipeline {
         }
         stage('k8s deploy'){
             steps{
-               sh 'kubectl apply -f k8s-deploy.yml' --validate=false
+               sh 'kubectl apply -f k8s-deploy.yml'
             }
         }
     }
